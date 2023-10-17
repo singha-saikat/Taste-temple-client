@@ -1,4 +1,5 @@
 import {  NavLink } from "react-router-dom";
+import logo from '../assets/logo-no-background.png';
 
 // import { useState } from "react";
 
@@ -18,7 +19,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/services" className="hover:text-red-500">
+        <NavLink to="/addProduct" className="hover:text-red-500">
           Add Product
         </NavLink>
       </li>
@@ -50,7 +51,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar ">
+      <div className="navbar bg-slate-200">
         <div className="navbar-start">
           <div className="dropdown ">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -82,7 +83,7 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center">
-            <img className="w-28" src="src/assets/logo-no-background.png" alt="" />
+            <img className="w-28" src={logo} alt="" />
           <a className="normal-case text-xl hidden md:inline text-slate-900 rounded-md p-1">
           TasteTemple
           </a>

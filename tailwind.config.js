@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero': "url('src/assets/Meteor.svg')",
+        
+      }
+    },
   },
   plugins: [require("daisyui")],
 }

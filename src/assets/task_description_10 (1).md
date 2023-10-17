@@ -52,6 +52,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
    - Image
    - Name
+   - Brand name
    - Brand Name
    - Type (If you choose the `Technology and Electronics` category ,then the types of products will be phone, computer, headphone, etc)
    - Price
