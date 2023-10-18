@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddProduct = () => {
   const handleSubmit = (e) => {
@@ -33,6 +33,20 @@ const AddProduct = () => {
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        if(data.insertedId)
+        {
+          toast.success('🦄 Product added successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            
+        }
     })
   };
 
@@ -91,6 +105,9 @@ const AddProduct = () => {
                 <option>Hot Teas</option>
                 <option>Iced Teas</option>
                 <option>Cold drinks</option>
+                <option>Coke</option>
+                <option>Diet coke</option>
+                <option>Breakfast</option>
               </select>
               <button className="btn">Go</button>
             </div>
@@ -145,6 +162,7 @@ const AddProduct = () => {
           </div>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 };

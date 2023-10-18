@@ -21,7 +21,7 @@ const Banner = () => {
             beverages, all through our convenient and user-friendly app.
           </p>
         </div>
-        <div className="flex-1 p-8 ">
+        <div className="flex-1 p-28 ">
           <AutoplaySlider
             play={true}
             cancelOnInteraction={false} // should stop playing on user interaction

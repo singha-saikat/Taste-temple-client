@@ -9,6 +9,8 @@ export default {
       backgroundImage: {
         'hero': "url('src/assets/Meteor.svg')",
         
+        'login': "url('src/assets/blob-haikei.png')",
+        
       }
     },
   },

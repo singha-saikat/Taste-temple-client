@@ -1,13 +1,22 @@
-import {  NavLink } from "react-router-dom";
-import logo from '../assets/logo-no-background.png';
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo-no-background.png";
+import { useContext, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 // import { useState } from "react";
 
 const Navbar = () => {
- 
-  // const [showUsername, setShowUsername] = useState(false);
-  
-  
+  const { user, logout } = useContext(AuthContext);
+  const [showUsername, setShowUsername] = useState(false);
+  const handleSignOut = () => {
+    logout()
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const navLink = (
     <div className="flex flex-col gap-5 lg:flex-row  ">
       <li>
@@ -45,9 +54,9 @@ const Navbar = () => {
       </li>
     </div>
   );
-  // const toggleUsername = () => {
-  //   setShowUsername(!showUsername);
-  // };
+  const toggleUsername = () => {
+    setShowUsername(!showUsername);
+  };
 
   return (
     <div>
@@ -84,16 +93,39 @@ const Navbar = () => {
 
           <div className="flex items-center">
             <img className="w-28" src={logo} alt="" />
-          <a className="normal-case text-xl hidden md:inline text-slate-900 rounded-md p-1">
-          TasteTemple
-          </a>
+            <a className="normal-case text-xl hidden md:inline text-slate-900 rounded-md p-1">
+              TasteTemple
+            </a>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 ">{navLink}</ul>
         </div>
-        <div className="navbar-end flex gap-3 items-center ">
-          <button className="btn btn-ghost">Login</button>
+        <div className="navbar-end flex gap-3 items-center">
+          {user ? (
+            <>
+              
+              
+              {showUsername && (
+                <p className="text-black ">{user.displayName}</p>
+                
+              )}
+
+              <div className="avatar online">
+                <div className="w-8 rounded-full" onClick={toggleUsername}>
+                  <img src={user.photoURL} />
+                </div>
+              </div>
+
+              <button onClick={handleSignOut} className="btn rounded-lg">
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link to="/login">
+              <button className="btn  md:rounded-lg ">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
