@@ -11,6 +11,7 @@ import Register from "./components/Register";
 import AuthProvider from "./Provider/AuthProvider";
 import DisplayBrand from "./components/DisplayBrand";
 import BrandAdvertisement from "./components/BrandAdvertisement";
+import ProductDetails from "./components/ProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -37,16 +38,24 @@ const router = createBrowserRouter([
       {
         path: "/partners",
         element: <DisplayBrand></DisplayBrand>,
-        
       },
       {
-        path: "/:brandName",
+        path: "/brand/:brandName",
         element: <BrandAdvertisement></BrandAdvertisement>,
         loader: ({ params }) => {
           console.log(params);
           console.log(params.brandName);
-          return fetch(`http://localhost:4000/products?brand=${params.brandName}`);
-          
+          return fetch(
+            `http://localhost:4000/products?brand=${params.brandName}`
+          );
+        },
+      },
+      {
+        path: "/productDetails/:_id",
+        element: <ProductDetails></ProductDetails>,
+        loader: ({ params }) => {
+          console.log(params);
+          return fetch(`http://localhost:4000/productDetails/${params._id}`);
         },
         
       },

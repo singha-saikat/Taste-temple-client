@@ -57,6 +57,7 @@ const Register = () => {
           theme: "colored",
         });
         setTimeout(() => {
+          
           navigate('/');
         }, 2000); 
       })
