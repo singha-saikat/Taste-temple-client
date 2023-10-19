@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCbso0UHPPnvUZ77Bq77zvt7cB8HX0w3ao",
-  authDomain: "taste-temple-auth.firebaseapp.com",
-  projectId: "taste-temple-auth",
-  storageBucket: "taste-temple-auth.appspot.com",
-  messagingSenderId: "606127720661",
-  appId: "1:606127720661:web:eca9f52b1c684f28b03a5c"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

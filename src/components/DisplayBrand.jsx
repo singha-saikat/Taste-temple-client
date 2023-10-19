@@ -11,7 +11,7 @@ const DisplayBrand = () => {
     
     const storeData = await data.json();
     setLoadedData(storeData)
-    console.log(loadedData);
+    
     }
     load();
     

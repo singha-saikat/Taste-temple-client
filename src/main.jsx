@@ -10,6 +10,7 @@ import LoginPage from "./components/LoginPage";
 import Register from "./components/Register";
 import AuthProvider from "./Provider/AuthProvider";
 import DisplayBrand from "./components/DisplayBrand";
+import BrandAdvertisement from "./components/BrandAdvertisement";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,17 @@ const router = createBrowserRouter([
       {
         path: "/partners",
         element: <DisplayBrand></DisplayBrand>,
+        
+      },
+      {
+        path: "/:brandName",
+        element: <BrandAdvertisement></BrandAdvertisement>,
+        loader: ({ params }) => {
+          console.log(params);
+          console.log(params.brandName);
+          return fetch(`http://localhost:4000/products?brand=${params.brandName}`);
+          
+        },
         
       },
     ],
