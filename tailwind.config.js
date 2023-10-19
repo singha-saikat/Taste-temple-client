@@ -10,6 +10,7 @@ export default {
         'hero': "url('src/assets/Meteor.svg')",
         
         'login': "url('src/assets/blob-haikei.png')",
+        'svg': "url('src/assets/Animated Shape.svg')",
         
       }
     },

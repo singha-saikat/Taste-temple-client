@@ -9,6 +9,7 @@ import AddProduct from "./components/AddProduct";
 import LoginPage from "./components/LoginPage";
 import Register from "./components/Register";
 import AuthProvider from "./Provider/AuthProvider";
+import DisplayBrand from "./components/DisplayBrand";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/partners",
+        element: <DisplayBrand></DisplayBrand>,
+        
       },
     ],
   },

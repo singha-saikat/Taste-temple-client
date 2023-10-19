@@ -38,8 +38,8 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/review" className="hover:text-red-500">
-          Review
+        <NavLink to="/partners" className="hover:text-red-500">
+          Our Partners
         </NavLink>
       </li>
       <li>
