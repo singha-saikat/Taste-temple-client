@@ -1,8 +1,39 @@
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ProductDetails = () => {
   const productData = useLoaderData();
   console.log("new", productData);
+
+  const  handleAddToCart = ()=>{
+    const cartData = {productData}
+    fetch('http://localhost:4000/cartData',{
+        method:"POST",
+        headers:{
+            'content-Type' : 'application/json'
+        },
+        body: JSON.stringify(cartData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.insertedId)
+        {
+          toast.success('🦄 Product added to  MyCart successfully', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            
+        }
+    })
+  }
   return (
     <div>
       <div className="card lg:card-side bg-base-100 shadow-xl max-w-7xl mx-auto mt-2">
@@ -16,8 +47,9 @@ const ProductDetails = () => {
           <h2 className="card-title">{productData.description}</h2>
           
           <div className="card-actions justify-center mt-4">
-            <button  className="btn btn-primary">Add to Cart</button>
+            <button onClick={handleAddToCart} className="btn btn-primary">Add to Cart</button>
           </div>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </div>

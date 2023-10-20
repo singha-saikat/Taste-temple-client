@@ -3,18 +3,18 @@ import { Link, useLoaderData } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 const BrandProducts = ({ brand }) => {
-  const imagedata =useLoaderData();
+  const imagedata = useLoaderData();
   console.log(imagedata);
-//   const[loadedData,setLoadedData] =useState([]);
-//   useEffect(() => {
-//     const load = async() => {
-//         const data = await fetch(`http://localhost:4000/products?brand=${brand.brandName}`); // Corrected the endpoint
-//         const storeData = await data.json();
-//         setLoadedData(storeData);
-//         console.log(storeData); // Logging the immediate result
-//     };
-//     load();
-// }, [brand.brandName]);
+  //   const[loadedData,setLoadedData] =useState([]);
+  //   useEffect(() => {
+  //     const load = async() => {
+  //         const data = await fetch(`http://localhost:4000/products?brand=${brand.brandName}`); // Corrected the endpoint
+  //         const storeData = await data.json();
+  //         setLoadedData(storeData);
+  //         console.log(storeData); // Logging the immediate result
+  //     };
+  //     load();
+  // }, [brand.brandName]);
   return (
     <div>
       <div className="card w-full h-[500px] bg-base-100 shadow-xl">
@@ -36,7 +36,9 @@ const BrandProducts = ({ brand }) => {
               </Link>
             </div>
             <div className="badge badge-outline">
-              <button>Update</button>
+              <Link to={`/updateDetails/${brand._id}`}>
+                <button>Update</button>
+              </Link>
             </div>
           </div>
         </div>

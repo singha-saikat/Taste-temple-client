@@ -33,7 +33,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/gallery" className="hover:text-red-500">
+        <NavLink to="/cart/myCart" className="hover:text-red-500">
           My Cart
         </NavLink>
       </li>

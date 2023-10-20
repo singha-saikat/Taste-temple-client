@@ -12,6 +12,8 @@ import AuthProvider from "./Provider/AuthProvider";
 import DisplayBrand from "./components/DisplayBrand";
 import BrandAdvertisement from "./components/BrandAdvertisement";
 import ProductDetails from "./components/ProductDetails";
+import MyCart from "./components/MyCart";
+import UpdateProduct from "./components/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,11 @@ const router = createBrowserRouter([
         element: <DisplayBrand></DisplayBrand>,
       },
       {
+        path: "/cart/myCart",
+        element: <MyCart></MyCart>,
+        loader: () => fetch("http://localhost:4000/cart/myCartData"),
+      },
+      {
         path: "/brand/:brandName",
         element: <BrandAdvertisement></BrandAdvertisement>,
         loader: ({ params }) => {
@@ -57,7 +64,14 @@ const router = createBrowserRouter([
           console.log(params);
           return fetch(`http://localhost:4000/productDetails/${params._id}`);
         },
-        
+      },
+      {
+        path: "/updateDetails/:_id",
+        element: <UpdateProduct></UpdateProduct>,
+        loader: ({ params }) => {
+          console.log(params);
+          return fetch(`http://localhost:4000/updateDetails/${params._id}`);
+        },
       },
     ],
   },
