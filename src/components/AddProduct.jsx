@@ -110,6 +110,11 @@ const AddProduct = () => {
                 <option>Diet coke</option>
                 <option>Breakfast</option>
                 <option>HotCoffee</option>
+                <option>Tomato</option>
+                <option>Chips</option>
+                <option>Noodles </option>
+                <option>Chocolates</option>
+                <option>Beverages</option>
               </select>
               <button className="btn">Go</button>
             </div>
