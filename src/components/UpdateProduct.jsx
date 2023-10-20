@@ -2,62 +2,59 @@ import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const UpdateProduct = () => {
-    const data = useLoaderData();
-    console.log(data);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const image = form.image.value;
-        const name = form.name.value;
-        const brand = form.brand.value;
-        const type = form.type.value;
-        const price = form.price.value;
-        const description = form.description.value;
-        const rating = form.rating.value;
-        // console.log("Form Data:");
-        // console.log("Image:", image);
-        // console.log("Name:", name);
-        // console.log("Brand:", brand);
-        // console.log("Type:", type);
-        // console.log("Price:", price);
-        // console.log("Description:", description);
-        // console.log("Rating:", rating);
-        const addProductData = {
-            image,name,brand,type,price,description,rating
+  const data = useLoaderData();
+  console.log(data);
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const name = form.name.value;
+    const brand = form.brand.value;
+    const type = form.type.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    const addProductData = {
+      image,
+      name,
+      brand,
+      type,
+      price,
+      description,
+      rating,
+    };
+    console.log(addProductData);
+    fetch(`http://localhost:4000/update/${data._id}`, {
+      method: "PUT",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(addProductData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount>0) {
+          toast.success("🦄 Product Updated successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
         }
-        console.log(addProductData);
-        fetch('http://localhost:4000/products',{
-            method:"POST",
-            headers:{
-                'content-Type' : 'application/json'
-            },
-            body: JSON.stringify(addProductData)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId)
-            {
-              toast.success('🦄 Product added successfully', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                });
-                
-            }
-        })
-      };
-    return (
-        <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Update {data.name} Product</h2>
-      <form onSubmit={handleSubmit}>
+      });
+  };
+  return (
+    <div className="p-4 max-w-md mx-auto">
+      <h2 className="text-2xl font-semibold mb-4">
+        Update {data.name} Product
+      </h2>
+      <form onSubmit={handleUpdate}>
         <div className="space-y-4">
           <div className="form-control">
             <label className="input-group input-group-vertical">
@@ -175,7 +172,7 @@ const UpdateProduct = () => {
       </form>
       <ToastContainer />
     </div>
-    );
+  );
 };
 
 export default UpdateProduct;

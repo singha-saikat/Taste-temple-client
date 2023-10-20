@@ -12,31 +12,29 @@ const AddProduct = () => {
     const price = form.price.value;
     const description = form.description.value;
     const rating = form.rating.value;
-    // console.log("Form Data:");
-    // console.log("Image:", image);
-    // console.log("Name:", name);
-    // console.log("Brand:", brand);
-    // console.log("Type:", type);
-    // console.log("Price:", price);
-    // console.log("Description:", description);
-    // console.log("Rating:", rating);
+
     const addProductData = {
-        image,name,brand,type,price,description,rating
-    }
+      image,
+      name,
+      brand,
+      type,
+      price,
+      description,
+      rating,
+    };
     console.log(addProductData);
-    fetch('http://localhost:4000/products',{
-        method:"POST",
-        headers:{
-            'content-Type' : 'application/json'
-        },
-        body: JSON.stringify(addProductData)
+    fetch("http://localhost:4000/products", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(addProductData),
     })
-    .then(res => res.json())
-    .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-        if(data.insertedId)
-        {
-          toast.success('🦄 Product added successfully', {
+        if (data.insertedId) {
+          toast.success("🦄 Product added successfully", {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -45,10 +43,9 @@ const AddProduct = () => {
             draggable: true,
             progress: undefined,
             theme: "colored",
-            });
-            
+          });
         }
-    })
+      });
   };
 
   return (
