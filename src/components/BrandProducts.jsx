@@ -18,6 +18,7 @@ const BrandProducts = ({ brand }) => {
   return (
     <div>
       <div className="card w-full h-[500px] bg-base-100 shadow-xl">
+        
         <figure>
           <img src={brand.image} alt="Shoes" />
         </figure>
