@@ -1,5 +1,5 @@
 import { useContext} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const LoginPage = () => {
   const { signIn,setLoading } = useContext(AuthContext);
+  const location = useLocation();
+  console.log(location);
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
@@ -20,7 +22,9 @@ const LoginPage = () => {
     console.log(email,password);
     signIn(email,password)
     .then(result => {
-      console.log(result.user);
+      console.log(result.user); 
+      navigate(location?.state? location.state : '/' )
+
       toast.success("Logged in successfully", {
         position: "top-right",
         autoClose: 500,

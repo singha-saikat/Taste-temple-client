@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-import Layout from "./components/Layout";
-import ErrorPage from "./components/ErrorPage";
-import Home from "./components/Home";
 import AddProduct from "./components/AddProduct";
-import LoginPage from "./components/LoginPage";
-import Register from "./components/Register";
-import AuthProvider from "./Provider/AuthProvider";
-import DisplayBrand from "./components/DisplayBrand";
 import BrandAdvertisement from "./components/BrandAdvertisement";
-import ProductDetails from "./components/ProductDetails";
+import DisplayBrand from "./components/DisplayBrand";
+import ErrorPage from "./components/ErrorPage";
+import Gallery from "./components/Gallery";
+import Home from "./components/Home";
+import Layout from "./components/Layout";
+import LoginPage from "./components/LoginPage";
 import MyCart from "./components/MyCart";
+import PrivateRoutes from "./components/PrivateRoutes";
+import ProductDetails from "./components/ProductDetails";
+import Register from "./components/Register";
 import UpdateProduct from "./components/UpdateProduct";
+import "./index.css";
+import AuthProvider from "./Provider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct />,
+        element: (
+          <PrivateRoutes>
+            <AddProduct />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
@@ -42,8 +48,16 @@ const router = createBrowserRouter([
         element: <DisplayBrand></DisplayBrand>,
       },
       {
+        path: "/gallery",
+        element: <Gallery></Gallery>,
+      },
+      {
         path: "/cart/myCart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoutes>
+            <MyCart></MyCart>
+          </PrivateRoutes>
+        ),
         loader: () => fetch("http://localhost:4000/cart/myCartData"),
       },
       {
@@ -59,7 +73,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:_id",
-        element: <ProductDetails></ProductDetails>,
+        element: (
+          <PrivateRoutes>
+            <ProductDetails></ProductDetails>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) => {
           console.log(params);
           return fetch(`http://localhost:4000/productDetails/${params._id}`);
@@ -67,7 +85,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateDetails/:_id",
-        element: <UpdateProduct></UpdateProduct>,
+        element: (
+          <PrivateRoutes>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) => {
           console.log(params);
           return fetch(`http://localhost:4000/updateDetails/${params._id}`);

@@ -1,6 +1,6 @@
 // import { useLoaderData } from "react-router-dom";
-import BrandCard from "./BrandCard";
 import { useEffect, useState } from "react";
+import BrandCard from "./BrandCard";
 
 const DisplayBrand = () => {
   const[loadedData,setLoadedData] =useState([]);
@@ -20,7 +20,7 @@ const DisplayBrand = () => {
   
   return (
     <div className="max-w-7xl mx-auto">
-      <h1 className="text-4xl text-center text-bold mt-4">
+      <h1 className="text-4xl text-center text-bold mt-4 mb-4">
         Our <span className="text-indigo-500 text-5xl">Partners</span>
       </h1>
      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
