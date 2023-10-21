@@ -12,7 +12,7 @@ const Banner = () => {
       {/* <img src={heroPattern} alt="" /> */}
       <div className="flex flex-col md:flex-row items-center justify-center pt-12 ">
         <div className="flex-1 px-2">
-          <h1 className="text-5xl text-center mb-2 text-blue-500 ">Food Made With Love</h1>
+          <h1 className="text-3xl md:text-5xl text-center mb-2 text-blue-500 ">Food Made With Love</h1>
           <p className="text-center">
             Your passport to culinary excellence! Our Food and Beverage app
             brings you the finest offerings from renowned brands like 

@@ -12,7 +12,8 @@ export default {
         'login': "url('src/assets/blob-haikei.png')",
         'svg': "url('src/assets/Animated Shape.svg')",
         
-      }
+      },
+      
     },
   },
   plugins: [require("daisyui")],

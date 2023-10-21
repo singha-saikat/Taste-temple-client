@@ -38,11 +38,7 @@ const Navbar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/login" className="hover:text-red-500">
-          Login
-        </NavLink>
-      </li>
+      
       <li>
         <NavLink to="/addProduct" className="hover:text-red-500">
           Add Product
@@ -63,11 +59,7 @@ const Navbar = () => {
           Gallery
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/contact" className="hover:text-red-500">
-          Contact Us
-        </NavLink>
-      </li>
+      
     </div>
   );
   const toggleUsername = () => {
@@ -108,8 +100,8 @@ const Navbar = () => {
           </div>
 
           <div className="flex items-center">
-            <img className="w-28" src={logo} alt="" />
-            <a className="normal-case text-xl hidden md:inline text-slate-900 rounded-md p-1">
+            <img className="w-16 md:w-28" src={logo} alt="" />
+            <a className="normal-case text-xl hidden md:inline text-slate-900 rounded-md p-1 ">
               TasteTemple
             </a>
           </div>
@@ -136,7 +128,7 @@ const Navbar = () => {
             </>
           ) : (
             <Link to="/login">
-              <button className="btn  md:rounded-lg ">Login</button>
+              <button className="btn md:rounded-lg ">Login</button>
             </Link>
           )}
           <label className="swap swap-rotate">
