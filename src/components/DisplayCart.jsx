@@ -3,7 +3,7 @@ const DisplayCart = ({ cart }) => {
     console.log(cart);
     
   const handleDelete = () => {
-    // fetch(`http://localhost:4000/update/${data._id}`,
+   
     console.log(cart.productData._id);
     fetch(`http://localhost:4000/delete/${cart._id}`, {
       method: "DELETE",

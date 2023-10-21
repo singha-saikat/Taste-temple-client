@@ -9,14 +9,15 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Banner = () => {
   return (
     <div className="h-[80vh] bg-hero  ">
-      {/* <img src={heroPattern} alt="" /> */}
       <div className="flex flex-col md:flex-row items-center justify-center pt-12 ">
         <div className="flex-1 px-2">
-          <h1 className="text-3xl md:text-5xl text-center mb-2 text-blue-500 ">Food Made With Love</h1>
+          <h1 className="text-3xl md:text-5xl text-center mb-2 text-blue-500 ">
+            Food Made With Love
+          </h1>
           <p className="text-center">
             Your passport to culinary excellence! Our Food and Beverage app
-            brings you the finest offerings from renowned brands like 
-            McDonald, Starbucks, PepsiCo, and others. 
+            brings you the finest offerings from renowned brands like McDonald,
+            Starbucks, PepsiCo, and others.
           </p>
         </div>
         <div className="flex-1 p-0 md:p-28 ">
@@ -25,12 +26,10 @@ const Banner = () => {
             cancelOnInteraction={false} // should stop playing on user interaction
             interval={6000}
           >
-            
-              <div data-src={image1} />
-              <div data-src={image2} />
-              <div data-src={image3} />
-              <div data-src={image4} />
-            
+            <div data-src={image1} />
+            <div data-src={image2} />
+            <div data-src={image3} />
+            <div data-src={image4} />
           </AutoplaySlider>
         </div>
       </div>

@@ -9,25 +9,7 @@ const ProductDetails = () => {
   const [cartProducts, setCartProducts] = useState([]);
 
   const handleAddToCart = () => {
-    // // Use the find method to check if the product exists in the local state
-    // const existingProduct = cartProducts.find(product => product._id === productData._id);
-
-    // if (existingProduct) {
-    //     // Display toast for existing product
-    //     toast.warn('🔔 Product already added to cart!', {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         theme: "colored",
-    //     });
-    //     return;  // exit the function early
-    // }
-
-    // If product doesn't exist in local state, add to database
+    
     fetch('http://localhost:4000/cartData', {
         method: "POST",
         headers: {
